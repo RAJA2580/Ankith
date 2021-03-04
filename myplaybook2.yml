@@ -1,0 +1,10 @@
+---
+- hosts: webserver
+  become: yes
+  tasks: 
+    - name: installing httpd package
+      yum:  name=httpd state=present
+    - name: installing git package
+      yum:  name=git state=present
+    - name: installing tree package
+      yum:  name=tree state=present

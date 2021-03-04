@@ -1,0 +1,12 @@
+---
+- hosts: webserver,appserver
+  become: yes
+  tasks:
+          - name: creating users web and app
+            user: name={{item}}
+            with_items:
+                    - raja
+                    - rama
+                    - king
+                    - ravi
+
