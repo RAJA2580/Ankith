@@ -1,0 +1,12 @@
+---
+- hosts: webserver,appserver
+  become: yes
+  tasks: 
+    - name: installing httpd package
+      yum:  name=httpd state=present
+    - name: create index.html
+      file: path=/var/www/html/ state=touch
+    - name: copy a content into index.html
+      copy: content="welcome to devops world\n" dest=/var/www/html/index.html
+    - name: start httpd
+      service: name=httpd state=started enabled=yes

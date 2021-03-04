@@ -1,0 +1,13 @@
+---
+- hosts: webserver
+  become: yes
+  gather_facts: False
+  tasks:
+    - name: install git
+      yum:
+        name: git
+        state: present
+    - name: clone a repo into /ankith
+      git:
+        repo: https://github.com/RAJA2580/Ankith.git
+        dest: /ankith

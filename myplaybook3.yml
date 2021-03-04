@@ -1,0 +1,11 @@
+---
+- hosts: raja
+  become: yes
+  tasks: 
+    - name: installing httpd package
+      yum: name={{item}} state=latest
+      with_items:
+	  - git 
+	  - httpd
+	  - finger
+          - tree
