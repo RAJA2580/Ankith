@@ -1,0 +1,17 @@
+---
+- hosts: web
+  become: yes
+  tasks:
+    - name: check if directory exists
+      stat:
+        path: /tmp/india
+      register: result
+    - name: print output of register value
+      debug:
+        var: result       
+    - name: create a file
+      file:
+        name: /tmp/india/devops
+        state: touch
+      when:
+        result.stat.exists == true
