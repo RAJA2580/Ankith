@@ -1,0 +1,6 @@
+---
+- hosts: web,app
+  become: yes
+  tasks:
+     - name: httpd service start
+       service: name=httpd state=started
