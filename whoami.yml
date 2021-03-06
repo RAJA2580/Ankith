@@ -1,0 +1,12 @@
+---
+- hosts: web
+  become: yes
+  tasks:
+    - name: check if directory exists
+      stat:
+        path: /tmp/india
+      register: result
+    - name: print output of register value
+      debug:
+        msg:
+        - "display value of register {{result}}"
